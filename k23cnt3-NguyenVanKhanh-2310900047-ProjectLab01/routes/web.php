@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NVKLOAISANPHAMController; 
 use App\Http\Controllers\NVK_Quan_TriController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,19 @@ Route::get('/', function () {
 });
 Route::get('/admins/nvk-login',[NVK_Quan_TriController::class,'nvkLogin'])->name('admins.nvkLogin');
 Route::post('/admins/nvk-login',[NVK_Quan_TriController::class,'nvkLoginSubmit'])->name('admins.nvkLoginSubmit'); 
+
+#Admin - row
+Route::get('/nvk-admins',function(){
+    return view('nvkAdmins.index');
+});
+
+Route::get('/nvk-admins/nvk-loai-san-pham',[NVKLOAISANPHAMController::class,'nvkList'])->name('nvkadmins.nvkloaisanpham');
+Route::get('/nvk-admins/nvk-loai-san-pham/nvk-create',[NVKLOAISANPHAMController::class,'nvkCreate'])->name('nvkadmins.nvkloaisanpham.nvkcreate');
+Route::post('/nvk-admins/nvk-loai-san-pham/nvk-create',[NVKLOAISANPHAMController::class,'nvkCreateSubmit'])->name('nvkadmins.nvkloaisanpham.nvkcreatesubmit');
+
+#edit
+Route::get('/nvk-admins/nvk-loai-san-pham/nvk-edit/{id}',[NVKLOAISANPHAMController::class,'nvkEdit'])->name('nvkadmins.nvkloaisanpham.nvkedit');
+Route::post('/nvk-admins/nvk-loai-san-pham/nvk-edit',[NVKLOAISANPHAMController::class,'nvkEditSubmit'])->name('nvkadmins.nvkloaisanpham.nvkeditsubmit');
+
+#delete
+Route::get('/nvk-admins/nvk-loai-san-pham/nvk-edit/{id}',[NVKLOAISANPHAMController::class,'nvkEdit'])->name('nvkadmins.nvkloaisanpham.nvkedit');
