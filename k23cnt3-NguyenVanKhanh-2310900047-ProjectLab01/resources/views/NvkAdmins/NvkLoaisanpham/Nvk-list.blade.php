@@ -33,8 +33,8 @@
                             <td>{{$item->nvkTrangThai}}</td>
                             <td>
                                 View /
-                                <a href="(/nvkadmins.nvkloaisanpham.nvkedit')/{{$item->id}}">edit</a>
-                                <a href="">delete</a>
+                                <a href="(/nvkadmins.nvkloaisanpham.nvkedit')/{{$item->id}}">Edit</a>                               
+                                <a href="/nvk-admins/nvk-loai-san-pham/nvk-delete/{{$item->id}}" onclick="return confirm('Ban co chac chan xoa khong?')">/ Delete</a>
                             </td>
                         </tr>
                     @empty

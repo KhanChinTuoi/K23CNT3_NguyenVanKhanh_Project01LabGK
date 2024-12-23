@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col">
             <form action="{{route('nvkadmins.nvkloaisanpham.nvkcreatesubmit')}}" method="post">
-                
+                @csrf
                 <div class="card">
                 <div class="card-header">
                     <h2>Thêm mới loại sản phẩm</h2>
@@ -21,14 +21,22 @@
                         <label for="nvkMaLoai" class="col-sm-2 col-form-label">Mã loại</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control"
+                            value="{{old('nvkMaLoai')}}"
                             id="nvkMaLoai" name="nvkMaLoai">
+                            @error('nvkMaLoai')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="nvkTenLoai" class="col-sm-2 col-form-label">Tên loại</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control"
+                            value="{{old('nvkTenLoai')}}"
                             id="nvkTenLoai" name="nvkTenLoai">
+                            @error('nvkTenLoai')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">

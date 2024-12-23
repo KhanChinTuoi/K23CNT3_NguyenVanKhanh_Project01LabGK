@@ -14,17 +14,23 @@ class NVKLOAISANPHAMController extends Controller
     {
         $nvkLoaiSanPhams = Nvk_Loai_san_pham::all();
         
-        return view('nvkAdmins.nvkLoaiSanPham.nvk-list',['nvkLoaiSanPhams'=>$nvkLoaiSanPhams]);
+        return view('nvkAdmins.nvkLoaisanpham.Nvk-list',['nvkLoaiSanPhams'=>$nvkLoaiSanPhams]);
     }
 
     // create
     public function nvkCreate()
     {
-        return view('nvkAdmins.nvkLoaiSanPham.nvk-create');
+        return view('nvkAdmins.nvkLoaisanpham.Nvk-create');
     }
 
     public function nvkCreateSubmit(Request $request)
     {
+        //Validation data
+        $validationData = $request->validate([
+            'nvkMaLoai'=>'required',
+            'nvkTenLoai'=>'required',
+        ]);
+
         // ghi dữ liệu xuống DB
         $nvkLoaiSanPham = new Nvk_Loai_san_pham;
         $nvkLoaiSanPham->nvkMaLoai = $request->nvkMaLoai;
@@ -36,11 +42,11 @@ class NVKLOAISANPHAMController extends Controller
         return redirect()->route('nvkadmins.nvkloaisanpham');
     }
 
-    // edit 
+    // get: edit 
     public function nvkEdit($id)
     {
         $nvkLoaiSanPham = Nvk_Loai_san_pham::find($id);
-        return view('nvkAdmins.nvkLoaiSanPham.nvk-edit',['nvkLoaiSanPham'=>$nvkLoaiSanPham]);
+        return view('nvkAdmins.nvkLoaisanpham.Nvk-edit',['nvkLoaiSanPham'=>$nvkLoaiSanPham]);
     }
 
     // Post: nvkEditSubmit
@@ -59,7 +65,8 @@ class NVKLOAISANPHAMController extends Controller
     // Get - nvkDelete
     public function nvkDelete($id)
     {
-        
+        $nvkLoaiSanPham = Nvk_Loai_san_pham::find($id);
+        $nvkLoaiSanPham->delete();
         return redirect()->route('nvkadmins.nvkloaisanpham');
     }
 }

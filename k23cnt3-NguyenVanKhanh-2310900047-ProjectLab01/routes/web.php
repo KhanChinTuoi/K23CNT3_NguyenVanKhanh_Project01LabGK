@@ -35,4 +35,4 @@ Route::get('/nvk-admins/nvk-loai-san-pham/nvk-edit/{id}',[NVKLOAISANPHAMControll
 Route::post('/nvk-admins/nvk-loai-san-pham/nvk-edit',[NVKLOAISANPHAMController::class,'nvkEditSubmit'])->name('nvkadmins.nvkloaisanpham.nvkeditsubmit');
 
 #delete
-Route::get('/nvk-admins/nvk-loai-san-pham/nvk-edit/{id}',[NVKLOAISANPHAMController::class,'nvkEdit'])->name('nvkadmins.nvkloaisanpham.nvkedit');
+Route::get('/nvk-admins/nvk-loai-san-pham/nvk-delete/{id}',[NVKLOAISANPHAMController::class,'nvkDelete'])->name('nvkadmins.nvkloaisanpham.nvkdelete');

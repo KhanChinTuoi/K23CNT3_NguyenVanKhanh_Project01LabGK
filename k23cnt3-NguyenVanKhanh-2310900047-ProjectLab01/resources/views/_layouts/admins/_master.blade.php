@@ -21,11 +21,11 @@
 <body style="background:#ccc">
     <section class="container-fluid d-flex">
         <nav class="sideBar m-1">
-            @include('_layouts.admin.menu')
+            @include('_layouts.admins._menu')
         </nav>
-        <section class="wrapper boder my-1">
+        <section class="wrapper m-1">
             <header class="my-1 p-1">
-                @include('_layouts.admin._headerTitle')
+                @include('_layouts.admins._headerTitle')
             </header>
             <section class="content-body my-1 p-1">
                 @yield('content-body')

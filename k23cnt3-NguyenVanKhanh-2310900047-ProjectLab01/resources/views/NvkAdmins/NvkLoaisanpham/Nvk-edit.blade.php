@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form action="{{route('nvkadmins.nvkloaisanpham.nvkcreatesubmit')}}" method="post">
+            <form action="{{route('nvkadmins.nvkloaisanpham.nvkeditsubmit')}}" method="post">
                 
                 <div class="card">
                 <div class="card-header">
@@ -23,6 +23,9 @@
                             <input type="text" class="form-control"
                             value="{{$nvkLoaiSanPham->nvkMaLoai}}"
                             id="nvkMaLoai" name="nvkMaLoai">
+                            @error('nvkMaLoai')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -31,6 +34,9 @@
                             <input type="text" class="form-control"
                             value="{{$nvkLoaiSanPham->nvkMaLoai}}"
                             id="nvkTenLoai" name="nvkTenLoai">
+                            @error('nvkTenLoai')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
