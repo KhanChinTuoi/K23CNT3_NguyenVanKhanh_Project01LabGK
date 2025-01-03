@@ -13,8 +13,30 @@
         }
         .wrapper{
             width: calc(100% - 250px);
-            background: #fff;
-        
+            background: #fff;       
+        }
+        .content-body {
+            padding: 20px;
+        }
+
+        .sideBar a {
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .sideBar a:hover {
+            color: white;
+            background-color: #575757;
+      
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.5em;
         }
         </style>
 </head>

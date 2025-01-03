@@ -29,6 +29,7 @@ class NVKLOAISANPHAMController extends Controller
         $validationData = $request->validate([
             'nvkMaLoai'=>'required',
             'nvkTenLoai'=>'required',
+            'nvkTrangThai' => 'required|in:0,1',
         ]);
 
         // ghi dữ liệu xuống DB
@@ -53,7 +54,16 @@ class NVKLOAISANPHAMController extends Controller
     public function nvkEditSubmit(Request $request)
     {
         // ghi de du lieu xuong db
+        $validationData = $request->validate([
+            'nvkMaLoai' => 'required|string|max:255|unique:Nvk_Loai_san_pham,nvkMaLoai,' . $request->id,
+            'nvkTenLoai' => 'required|string|max:255',   
+            'nvkTrangThai' => 'required|in:0,1',
+        ]);
+    
+        // tim du lieu bang id
         $nvkLoaiSanPham = Nvk_Loai_san_pham::find($request->id);
+
+        // cap nhat san pham bang data
         $nvkLoaiSanPham->nvkMaLoai = $request->nvkMaLoai;
         $nvkLoaiSanPham->nvkTenLoai = $request->nvkTenLoai;
         $nvkLoaiSanPham->nvkTrangThai = $request->nvkTrangThai;
@@ -61,6 +71,13 @@ class NVKLOAISANPHAMController extends Controller
         $nvkLoaiSanPham->save();
 
         return redirect()->route('nvkadmins.nvkloaisanpham');
+    }
+
+    public function nvkGetDetail($id)
+    {
+        $nvkLoaiSanPham = Nvk_Loai_san_pham::where('id', $id)->first();
+        return view('NvkAdmins.nvkloaisanpham.nvk-detail',['nvkLoaiSanPham'=>$nvkLoaiSanPham]);
+
     }
     // Get - nvkDelete
     public function nvkDelete($id)

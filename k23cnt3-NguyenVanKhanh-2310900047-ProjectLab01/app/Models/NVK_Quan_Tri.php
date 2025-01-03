@@ -11,4 +11,8 @@ class NVK_Quan_Tri extends Model
 
     protected $table="NVK_Quan_Tri";
     
+    protected $fillable = ['nvkTaiKhoan', 'nvkMatKhau', 'nvkTrangThai'];
+
+    // Tắt timestamp nếu không cần
+    public $timestamps = false;
 }

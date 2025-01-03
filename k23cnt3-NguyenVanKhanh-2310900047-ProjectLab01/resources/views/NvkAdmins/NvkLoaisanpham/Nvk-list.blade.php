@@ -32,9 +32,9 @@
                             <td>{{$item->nvkTenLoai}}</td>
                             <td>{{$item->nvkTrangThai}}</td>
                             <td>
-                                View /
-                                <a href="(/nvkadmins.nvkloaisanpham.nvkedit')/{{$item->id}}">Edit</a>                               
-                                <a href="/nvk-admins/nvk-loai-san-pham/nvk-delete/{{$item->id}}" onclick="return confirm('Ban co chac chan xoa khong?')">/ Delete</a>
+                                <a href="/nvk-admins/nvk-loai-san-pham/nvk-detail/{{ $item->id }}" class="btn btn-success btn-sm">View</a>
+                                <a href="/nvk-admins.nvk-loai-san-pham.nvk-edit'/{{$item->id}}" class="btn btn-success btn-sm">Edit</a>                               
+                                <a href="/nvk-admins/nvk-loai-san-pham/nvk-delete/{{$item->id}} "  class="btn btn-success btn-sm" onclick="return confirm('Ban co chac chan xoa khong?')">Delete</a>
                             </td>
                         </tr>
                     @empty

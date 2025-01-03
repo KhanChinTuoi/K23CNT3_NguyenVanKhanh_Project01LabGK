@@ -15,22 +15,22 @@ class NVKLoaiSanPhamTableSeeder extends Seeder
     {
         DB::table('nvk_loai_san_pham')->insert([
             'nvkMaLoai'=> "L001",
-            'nvkTenLoai'=>"Cây cảnh văn phòng",
+            'nvkTenLoai'=>"Sách nói phiêu lưu",
             'nvkTrangThai'=>0
         ]);
         DB::table('nvk_loai_san_pham')->insert([
             'nvkMaLoai'=> "L002",
-            'nvkTenLoai'=>"Cây để bàn",
+            'nvkTenLoai'=>"Sách nói lãng mạn",
             'nvkTrangThai'=>0
         ]);
         DB::table('nvk_loai_san_pham')->insert([
             'nvkMaLoai'=> "L003",
-            'nvkTenLoai'=>"Cây cảnh phong thủy",
+            'nvkTenLoai'=>"Sách nói triết lý",
             'nvkTrangThai'=>0
         ]);
         DB::table('nvk_loai_san_pham')->insert([
             'nvkMaLoai'=> "L004",
-            'nvkTenLoai'=>"Cây thủy canh",
+            'nvkTenLoai'=>"Sách nói giải pháp",
             'nvkTrangThai'=>0
         ]);
     }
