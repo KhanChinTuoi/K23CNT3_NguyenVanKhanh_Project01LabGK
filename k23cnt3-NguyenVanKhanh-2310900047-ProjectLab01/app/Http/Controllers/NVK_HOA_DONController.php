@@ -55,7 +55,7 @@ class NVK_HOA_DONController extends Controller
             'nvkEmail' => 'required|email',
             'nvkDienThoai' => 'required|numeric',  
             'nvkDiaChi' => 'required|string',  
-            'nvkTongGiaTri' => 'required|numeric',  // Đã thay đổi thành numeric (cho kiểu double)
+            'nvkTongTriGia' => 'required|numeric',  // Đã thay đổi thành numeric (cho kiểu double)
             'nvkTrangThai' => 'required|in:0,1,2',
         ]);
     
@@ -70,8 +70,8 @@ class NVK_HOA_DONController extends Controller
         $nvkhoadon->nvkDienThoai = $request->nvkDienThoai;
         $nvkhoadon->nvkDiaChi = $request->nvkDiaChi;
         
-        // Lưu 'nvkTongGiaTri' dưới dạng float (hoặc double) để phù hợp với kiểu dữ liệu trong cơ sở dữ liệu
-        $nvkhoadon->nvkTongGiaTri = (double) $request->nvkTongGiaTri; // Chuyển đổi sang double
+        // Lưu 'nvkTongTriGia' dưới dạng float (hoặc double) để phù hợp với kiểu dữ liệu trong cơ sở dữ liệu
+        $nvkhoadon->nvkTongTriGia = (double) $request->nvkTongTriGia; // Chuyển đổi sang double
         
         $nvkhoadon->nvkTrangThai = $request->nvkTrangThai;
     
@@ -107,7 +107,7 @@ class NVK_HOA_DONController extends Controller
             'nvkEmail' => 'required|email',
             'nvkDienThoai' => 'required|numeric',  
             'nvkDiaChi' => 'required|string',  
-            'nvkTongGiaTri' => 'required|numeric', 
+            'nvkTongTriGia' => 'required|numeric', 
             'nvkTrangThai' => 'required|in:0,1,2',
         ]);
     
@@ -120,8 +120,8 @@ class NVK_HOA_DONController extends Controller
         $nvkhoadon->nvkDienThoai = $request->nvkDienThoai;
         $nvkhoadon->nvkDiaChi = $request->nvkDiaChi;
         
-        // Lưu 'nvkTongGiaTri' dưới dạng float (hoặc double) để phù hợp với kiểu dữ liệu trong cơ sở dữ liệu
-        $nvkhoadon->nvkTongGiaTri = (double) $request->nvkTongGiaTri; // Chuyển đổi sang double
+        // Lưu 'nvkTongTriGia' dưới dạng float (hoặc double) để phù hợp với kiểu dữ liệu trong cơ sở dữ liệu
+        $nvkhoadon->nvkTongTriGia = (double) $request->nvkTongTriGia; // Chuyển đổi sang double
         
         $nvkhoadon->nvkTrangThai = $request->nvkTrangThai;
     

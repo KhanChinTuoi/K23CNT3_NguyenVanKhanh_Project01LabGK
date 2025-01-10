@@ -48,7 +48,7 @@
                             <td>{{ $item->nvkEmail }}</td>
                             <td>{{ $item->nvkDienThoai }}</td>
                             <td>{{ $item->nvkDiaChi }}</td>
-                            <td>{{ number_format($item->nvkTongGiaTri, 0, ',', '.') }} VND</td>
+                            <td>{{ number_format($item->nvkTongTriGia, 0, ',', '.') }} VND</td>
                             
                             <td>
                                 @if($item->nvkTrangThai == 0)

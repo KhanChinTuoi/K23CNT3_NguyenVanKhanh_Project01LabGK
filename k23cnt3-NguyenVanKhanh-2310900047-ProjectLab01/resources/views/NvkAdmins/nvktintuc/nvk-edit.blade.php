@@ -67,7 +67,7 @@
                         <!-- Ngày cập nhật -->
                         <div class="mb-3">
                             <label for="nvkNgayCapNhat" class="form-label">Ngày Cập Nhật</label>
-                            <input type="datetime-local" name="nvkNgayCapNhap" class="form-control" value="{{ old('nvkNgayCapNhat', $nvktinTuc->nvkNgayCapNhat) }}">
+                            <input type="datetime-local" name="nvkNgayCapNhat" class="form-control" value="{{ old('nvkNgayCapNhat', $nvktinTuc->nvkNgayCapNhat) }}">
                             @error('nvkNgayCapNhat')
                                 <div class="alert alert-danger mt-2">{{ $message }}</div>
                             @enderror

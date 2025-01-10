@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Nvk_Loai_san_pham;
 use Illuminate\Http\Request;
-use App\Models\NVKSanPham; 
+use App\Models\NVKSanPham;
+use Illuminate\Support\Facades\Storage;
 
 class NVKSANPHAMController extends Controller
 {
@@ -98,5 +99,75 @@ class NVKSANPHAMController extends Controller
         'NVKMaLoai' => 'required|exists:Nvk_Loai-san-pham,id',
         'NVKTrangThai' => 'required|in:0,1',
         ]);
+
+        $nvksanpham = new NVKSanPham();
+        $nvksanpham->nvkMaSanPham = $request->nvkMaSanPham;
+        $nvksanpham->nvkTenSanPham = $request->nvkTenSanPham;
+
+        if ($request->hasFile('nvkHinhAnh')) {
+            $file = $request->file('nvkHinhAnh');
+            if ($file->isValid()) {
+                $fileName = $request->nvkMaSanPham . '.' . $file->extension();
+                $file->storeAs('public/img/san_pham', $fileName);
+                $nvksanpham->nvkHinhAnh = 'img/san_pham/' . $fileName;
+            }
+        }
+        $nvksanpham->nvkSoLuong = $request->nvkSoLuong;
+        $nvksanpham->nvkDonGia = $request->nvkDonGia;
+        $nvksanpham->nvkMaLoai = $request->nvkMaLoai;
+        $nvksanpham->nvkTrangThai = $request->nvkTrangThai;
+        $nvksanpham->save();
+
+        return redirect()->route('nvkadmins.nvksanpham')->with('success', 'Sản phẩm đã được thêm thành công!');
+    }
+    public function nvkdelete($id)
+    {
+        NVKSanPham::where('id', $id)->delete();
+        return back()->with('sanpham_deleted', 'Đã xóa Sản Phẩm thành công!');
+    }
+
+    // Sửa sản phẩm
+    public function nvkEdit($id)
+    {
+        $nvksanpham = NVKSanPham::findOrFail($id);
+        $nvkloaisanpham = nvk_LOAI_SAN_PHAM::all();
+        return view('nvkAdmins.nvksanpham.nvk-edit', [
+            'nvksanpham' => $nvksanpham,
+            'nvkloaisanpham' => $nvkloaisanpham
+        ]);
+    }
+
+    // Xử lý chỉnh sửa sản phẩm
+    public function nvkEditSubmit(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'nvkMaSanPham' => 'required|max:20',
+            'nvkTenSanPham' => 'required|max:255',
+            'nvkHinhAnh' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nvkSoLuong' => 'required|integer',
+            'nvkDonGia' => 'required|numeric',
+            'nvkMaLoai' => 'required|max:10',
+            'nvkTrangThai' => 'required|in:0,1',
+        ]);
+
+        $nvksanpham = NVKSanPham::findOrFail($id);
+        $nvksanpham->nvkMaSanPham = $request->nvkMaSanPham;
+        $nvksanpham->nvkTenSanPham = $request->nvkTenSanPham;
+        $nvksanpham->nvkSoLuong = $request->nvkSoLuong;
+        $nvksanpham->nvkDonGia = $request->nvkDonGia;
+        $nvksanpham->nvkMaLoai = $request->nvkMaLoai;
+        $nvksanpham->nvkTrangThai = $request->nvkTrangThai;
+
+        if ($request->hasFile('nvkHinhAnh')) {
+            if ($nvksanpham->nvkHinhAnh && Storage::disk('public')->exists('img/san_pham/' . $nvksanpham->nvkHinhAnh)) {
+                Storage::disk('public')->delete('img/san_pham/' . $nvksanpham->nvkHinhAnh);
+            }
+            $imagePath = $request->file('nvkHinhAnh')->store('img/san_pham', 'public');
+            $nvksanpham->nvkHinhAnh = $imagePath;
+        }
+
+        $nvksanpham->save();
+
+        return redirect()->route('nvkadims.nvksanpham')->with('success', 'Sản phẩm đã được cập nhật thành công.');
     }
 }

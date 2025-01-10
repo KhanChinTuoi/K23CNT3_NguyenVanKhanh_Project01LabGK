@@ -23,7 +23,7 @@
 
         /* Add custom styles for the logo */
         .logo img {
-            max-height: 40px;
+            max-height: 80px;
         }
 
         /* Optional: Customize the admin user greeting */

@@ -81,9 +81,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="nvkTongGiaTri" class="form-label">Tổng Giá Trị</label>
-                                <input type="number" class="form-control" id="nvkTongGiaTri" name="nvkTongGiaTri" value="{{ old('nvkTongGiaTri') }}" >
-                                @error('nvkTongGiaTri')
+                                <label for="nvkTongTriGia" class="form-label">Tổng Giá Trị</label>
+                                <input type="number" class="form-control" id="nvkTongTriGia" name="nvkTongTriGia" value="{{ old('nvkTongTriGia') }}" >
+                                @error('nvkTongTriGia')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>

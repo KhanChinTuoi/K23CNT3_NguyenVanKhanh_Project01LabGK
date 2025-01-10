@@ -41,6 +41,7 @@
                                 <img src="{{ asset('storage/' . $item->nvkHinhAnh) }}" alt="Sản phẩm {{ $item->nvkMaSanPham }}" class="img-fluid" style="max-height:80px ">
                             </td>
                             <td>{{ $item->nvkSoLuong }}</td>
+                            <td>{{ number_format($item->nvkDonGia, 0, ',', '.') }} VND</td>
                             <td>{{ $item->nvkMaLoai }}</td>
                             <td>
                                 @if($item->nvkTrangThai == 0)
@@ -51,7 +52,7 @@
                             </td>
                             <td >
                                 view
-                                <a href="/NvkAdmins/NVKSanPham/nvk-edit/{{$item->id}}" class="btn btn-primary">Sửa</a>
+                                <a href="/NvkAdmins/NVKSanPham/NVKEdit/{{$item->id}}" class="btn btn-primary">Sửa</a>
                                 <a href="/NvkAdmins/NVKSanPham/NVKDelete/{{$item->id}}" onclick="return confirm('Ban co chac chan xoa khong?')">/ Delete</a>
                             </td>
                         </tr>

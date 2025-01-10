@@ -57,7 +57,7 @@ class NVK_TIN_TUCController extends Controller
         $nvktinTuc->nvkMoTa = $request->nvkMoTa;
         $nvktinTuc->nvkNoiDung = $request->nvkNoiDung;
         $nvktinTuc->nvkNgayDangTin = $request->nvkNgayDangTin;
-        $nvktinTuc->nvkNgayCapNhap = $request->nvkNgayCapNhap;
+        $nvktinTuc->nvkNgayCapNhat = $request->nvkNgayCapNhat;
 
         // Check if there's an image and save it
         if ($request->hasFile('nvkHinhAnh')) {

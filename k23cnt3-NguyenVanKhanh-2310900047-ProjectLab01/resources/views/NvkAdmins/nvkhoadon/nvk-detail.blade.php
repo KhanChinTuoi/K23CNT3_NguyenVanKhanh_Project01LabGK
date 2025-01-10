@@ -53,7 +53,7 @@
 
                             <p class="card-text">
                                 <b>Tổng Giá Trị:</b>
-                                {{ number_format($nvkhoadon->nvkTongGiaTri, 0, ',', '.') }} VND
+                                {{ number_format($nvkhoadon->nvkTongTriGia, 0, ',', '.') }} VND
                             </p>
 
                             <p class="card-text">
